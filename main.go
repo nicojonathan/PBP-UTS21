@@ -22,6 +22,9 @@ func main() {
 
 	//endpoint no 3
 	router.HandleFunc("/song/recommended", controllers.GetRecommendedSong).Methods("GET")
+
+	//endpoint no 4
+	router.HandleFunc("/user/update", controllers.UpdateUser).Methods("PUT")
 	
 
 	http.Handle("/", router)

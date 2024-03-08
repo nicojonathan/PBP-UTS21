@@ -6,6 +6,15 @@ import (
 	m "uts21/models"
 )
 
+func sendUserResponse (w http.ResponseWriter, message string, data []m.User) {
+	var response m.UsersResponse
+	response.Status = 200
+	response.Message = message
+	response.Data = data
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+}
+
 func sendGetPopularSongResponse (w http.ResponseWriter, message string, data []m.PopularSong) {
 	var response m.PopularSongsResponse
 	response.Status = 200
